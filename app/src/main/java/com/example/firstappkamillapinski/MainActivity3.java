@@ -16,6 +16,8 @@ import java.util.concurrent.TimeUnit;
 public class MainActivity3 extends AppCompatActivity {
     private Button btnFirstPage;
     @SuppressLint("MissingInflatedId")
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,11 @@ public class MainActivity3 extends AppCompatActivity {
 
 
 
+
+
+
+
+
         btnFirstPage = findViewById(R.id.button);
         btnFirstPage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,5 +45,37 @@ public class MainActivity3 extends AppCompatActivity {
             }
 
         });
+        onPause();
+        onStop();
+
+        onResume();
+
+    }
+
+
+    protected void onStop() {
+        super.onStop();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String ts  = dateFormat.format(new Date().getTime());
+        TextView  onstop =  findViewById(R.id.textView7);
+        onstop.setText(ts + " - onStop()");
+    }
+
+    protected void onResume() {
+        super.onResume();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String ts  = dateFormat.format(new Date().getTime());
+        TextView  onresume =  findViewById(R.id.textView8);
+        onresume.setText(ts + " - onResume()");
+    }
+
+
+
+    protected void onPause() {
+        super.onPause();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String ts  = dateFormat.format(new Date().getTime());
+        TextView  onpause =  findViewById(R.id.textView10);
+        onpause.setText(ts + " - onPause()");
     }
 }
